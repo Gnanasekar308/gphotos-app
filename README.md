@@ -6,7 +6,7 @@ every feature runs on the phone.
 
 ## Build
 
-Requirements: Flutter stable (3.27 or newer), JDK 17, Android SDK.
+Requirements: Flutter stable (tested on CI with the current stable; Gradle 9.5, AGP 9.3.1, Kotlin 2.4.20), JDK 17, Android SDK.
 
 ```bash
 flutter create --platforms=android --org com.gphotos --project-name gphotos .   # adds the Gradle wrapper only
