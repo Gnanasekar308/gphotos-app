@@ -227,7 +227,6 @@ class _PhotoGridState extends State<PhotoGrid> {
                   key: const PageStorageKey('grid'),
                   controller: sc,
                   padding: EdgeInsets.zero,
-                  cacheExtent: 600,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: s.gridColumns,
                     mainAxisSpacing: s.gridSpacing,

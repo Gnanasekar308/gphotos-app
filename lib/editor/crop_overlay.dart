@@ -38,10 +38,27 @@ Rect dragCrop(Rect r, CropHandle h, Offset deltaNorm, {double? aspect, double im
     case CropHandle.move:
       break;
   }
-  l = l.clamp(0.0, rr - minSize);
-  t = t.clamp(0.0, b - minSize);
-  rr = rr.clamp(l + minSize, 1.0);
-  b = b.clamp(t + minSize, 1.0);
+  // keep inside the image, then enforce the minimum size by moving only the dragged edge
+  l = l.clamp(0.0, 1.0 - minSize);
+  t = t.clamp(0.0, 1.0 - minSize);
+  rr = rr.clamp(minSize, 1.0);
+  b = b.clamp(minSize, 1.0);
+  final movesLeft = h == CropHandle.tl || h == CropHandle.bl || h == CropHandle.l;
+  final movesTop = h == CropHandle.tl || h == CropHandle.tr || h == CropHandle.t;
+  if (rr - l < minSize) {
+    if (movesLeft) {
+      l = rr - minSize;
+    } else {
+      rr = l + minSize;
+    }
+  }
+  if (b - t < minSize) {
+    if (movesTop) {
+      t = b - minSize;
+    } else {
+      b = t + minSize;
+    }
+  }
   var out = Rect.fromLTRB(l, t, rr, b);
   if (aspect != null) out = fitAspect(out, aspect, imageAspect, h);
   return out;

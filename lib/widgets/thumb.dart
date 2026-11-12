@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -11,7 +10,7 @@ class ThumbCache {
   static final instance = ThumbCache._();
   static const maxBytes = 40 * 1024 * 1024;
 
-  final _map = LinkedHashMap<String, Uint8List>();
+  final _map = <String, Uint8List>{};
   final _pending = <String, Future<Uint8List?>>{};
   int _bytes = 0;
 

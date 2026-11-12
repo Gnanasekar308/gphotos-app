@@ -51,7 +51,7 @@ void main() {
   group('geometry', () {
     test('rotate 90 swaps size, crop + resize sizes are exact', () {
       final im = solid(400, 200, 1, 2, 3);
-      final g = Geometry(turns: 1, crop: const Rect.fromLTRB(0, 0, 0.5, 0.5));
+      const g = Geometry(turns: 1, crop: Rect.fromLTRB(0, 0, 0.5, 0.5));
       expect(g.rotatedSize(400, 200), (200, 400));
       expect(g.cropSize(400, 200), (100, 200));
       final out = render(im, g, const Adjustments());

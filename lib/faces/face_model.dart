@@ -56,7 +56,7 @@ List<List<double>> faceSignatures(Uint8List encoded, List<FaceGeom> faces) {
   final grey = img.grayscale(decoded);
   final out = <List<double>>[];
   for (final f in faces) {
-    final m = 0.25;
+    const m = 0.25;
     final x = (f.left - f.width * m).round().clamp(0, grey.width - 1);
     final y = (f.top - f.height * m).round().clamp(0, grey.height - 1);
     final w = (f.width * (1 + 2 * m)).round().clamp(1, grey.width - x);

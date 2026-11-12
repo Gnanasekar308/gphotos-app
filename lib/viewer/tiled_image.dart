@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:collection';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -38,7 +37,7 @@ class _TiledImageState extends State<TiledImage> {
   int _gen = 0;
 
   static const _maxTiles = 40;
-  final _tiles = LinkedHashMap<String, _Tile>();
+  final _tiles = <String, _Tile>{};
   final _loading = <String>{};
   int _sample = 0;
 

@@ -50,7 +50,32 @@ class FaceStore extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void>? _saving;
+  bool _dirty = false;
+
+  /// Saves are serialised: overlapping calls coalesce into one more write after the current one.
   Future<void> save() async {
+    if (_saving != null) {
+      _dirty = true;
+      return _saving;
+    }
+    final run = _saveLoop();
+    _saving = run;
+    try {
+      await run;
+    } finally {
+      _saving = null;
+    }
+  }
+
+  Future<void> _saveLoop() async {
+    do {
+      _dirty = false;
+      await _writeOnce();
+    } while (_dirty);
+  }
+
+  Future<void> _writeOnce() async {
     final f = await _file();
     final tmp = File('${f.path}.tmp');
     await tmp.writeAsString(jsonEncode({
