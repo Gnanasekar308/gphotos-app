@@ -42,17 +42,17 @@ class ThumbCache {
   }
 }
 
-class Thumb extends StatefulWidget {
-  const Thumb(this.asset, {super.key, this.size = 256, this.fit = BoxFit.cover});
+class PhotoThumb extends StatefulWidget {
+  const PhotoThumb(this.asset, {super.key, this.size = 256, this.fit = BoxFit.cover});
   final AssetEntity asset;
   final int size;
   final BoxFit fit;
 
   @override
-  State<Thumb> createState() => _ThumbState();
+  State<PhotoThumb> createState() => _ThumbState();
 }
 
-class _ThumbState extends State<Thumb> {
+class _ThumbState extends State<PhotoThumb> {
   late Future<Uint8List?> _f;
 
   @override
@@ -62,7 +62,7 @@ class _ThumbState extends State<Thumb> {
   }
 
   @override
-  void didUpdateWidget(Thumb old) {
+  void didUpdateWidget(PhotoThumb old) {
     super.didUpdateWidget(old);
     if (old.asset.id != widget.asset.id || old.size != widget.size) {
       _f = ThumbCache.instance.get(widget.asset, widget.size);

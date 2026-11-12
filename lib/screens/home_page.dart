@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Stack(fit: StackFit.expand, children: [
-                  Thumb(lib.all.first, size: 720),
+                  PhotoThumb(lib.all.first, size: 720),
                   const ColoredBox(color: Colors.black38),
                   const Center(child: Icon(Icons.play_circle, size: 56, color: Colors.white)),
                   const Positioned(left: 12, bottom: 10, child: Text('Slideshow of recent photos', style: TextStyle(color: Colors.white))),

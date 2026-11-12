@@ -379,7 +379,7 @@ class _PersonPageState extends State<PersonPage> {
                           itemCount: list.length,
                           itemBuilder: (_, i) => GestureDetector(
                             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ViewerPage(items: list, start: i))),
-                            child: Thumb(list[i], size: 300),
+                            child: PhotoThumb(list[i], size: 300),
                           ),
                         );
                       },

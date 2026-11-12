@@ -26,7 +26,7 @@ class AlbumsPage extends StatelessWidget {
               child: Stack(fit: StackFit.expand, children: [
                 FutureBuilder<List<AssetEntity>>(
                   future: p.getAssetListRange(start: 0, end: 1),
-                  builder: (_, f) => (f.data == null || f.data!.isEmpty) ? const ColoredBox(color: Colors.black26) : Thumb(f.data!.first, size: 400),
+                  builder: (_, f) => (f.data == null || f.data!.isEmpty) ? const ColoredBox(color: Colors.black26) : PhotoThumb(f.data!.first, size: 400),
                 ),
                 const DecoratedBox(decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.center, end: Alignment.bottomCenter, colors: [Colors.transparent, Colors.black87]))),
                 Positioned(

@@ -92,7 +92,7 @@ void main() {
       expect(await s.thumb(it), j);
       expect(await s.containsPlaintextImages(), isFalse);
       s.lock();
-      expect(() => s.read(it), throwsStateError);
+      await expectLater(s.read(it), throwsStateError);
       final s2 = VaultStore(secrets, root: dir);
       await s2.unlock();
       expect(s2.items.single.name, 'p.jpg');

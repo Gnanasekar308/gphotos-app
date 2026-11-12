@@ -4,7 +4,6 @@ import 'package:photo_manager/photo_manager.dart';
 import '../core/file_ops.dart';
 import '../core/media_library.dart';
 import 'vault_page.dart';
-import 'vault_store.dart';
 
 /// Moves photos into the encrypted vault:
 /// 1. the vault must be unlocked (PIN / biometrics),

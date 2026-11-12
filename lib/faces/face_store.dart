@@ -185,6 +185,5 @@ class FaceStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  @visibleForTesting
   void notify() => notifyListeners();
 }

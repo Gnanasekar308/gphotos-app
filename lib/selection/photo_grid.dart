@@ -255,7 +255,7 @@ class _PhotoGridState extends State<PhotoGrid> {
                         AnimatedPadding(
                           duration: const Duration(milliseconds: 120),
                           padding: EdgeInsets.all(on ? 8 : 0),
-                          child: Thumb(a, size: px, fit: s.squareThumbs ? BoxFit.cover : BoxFit.contain),
+                          child: PhotoThumb(a, size: px, fit: s.squareThumbs ? BoxFit.cover : BoxFit.contain),
                         ),
                         if (sel.active)
                           Positioned(

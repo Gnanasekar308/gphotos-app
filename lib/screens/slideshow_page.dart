@@ -42,7 +42,7 @@ class _SlideshowPageState extends State<SlideshowPage> {
         body: PageView.builder(
           controller: pc,
           itemCount: items.length,
-          itemBuilder: (_, i) => Thumb(items[i], size: 1600, fit: BoxFit.contain),
+          itemBuilder: (_, i) => PhotoThumb(items[i], size: 1600, fit: BoxFit.contain),
         ),
       );
 }
